@@ -7,10 +7,17 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-# Mengaktifkan fitur native-activity yang diminta oleh error tadi
 android-activity = { version = "0.4", features = ["native-activity"] }
-egui = "0.22"
-eframe = { version = "0.22", default-features = false, features = ["glow", "android-native-activity"] }
+egui = "0.27"
+eframe = { version = "0.27", default-features = false, features = ["glow", "android-native-activity"] }
+egui_wgpu = "0.27"
+egui_winit = { version = "0.27", default-features = false, features = ["android-native-activity"] }
+winit = { version = "0.29", features = ["android-native-activity"] }
+pollster = "0.3"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+paranoid-android = "0.2"
+egui_demo_lib = "0.27"
 
 [package.metadata.android]
 build_targets = ["aarch64-linux-android"]

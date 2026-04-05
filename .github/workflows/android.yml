@@ -20,16 +20,15 @@ jobs:
         with:
           api-level: 33
           build-tools: 33.0.2
-          ndk-version: 25.2.9519653 # Sesuaikan dengan kebutuhan project
+          ndk-version: 25.2.9519653
 
       - name: Build APK
-        run: |
-          cd na-egui
-          cargo apk build --release
+        run: cargo apk build --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: rust-egui-apk
-          path: target/debug/apk/*.apk
+          # Diubah ke 'release' agar sesuai dengan command build di atas
+          path: target/release/apk/*.apk
 

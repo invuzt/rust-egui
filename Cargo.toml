@@ -1,16 +1,16 @@
 [package]
 name = "rust-egui"
 version = "0.1.0"
-authors = ["Your Name"]
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
-android-activity = "0.4"
+# Mengaktifkan fitur native-activity yang diminta oleh error tadi
+android-activity = { version = "0.4", features = ["native-activity"] }
 egui = "0.22"
-eframe = { version = "0.22", default-features = false, features = ["glow"] }
+eframe = { version = "0.22", default-features = false, features = ["glow", "android-native-activity"] }
 
 [package.metadata.android]
 build_targets = ["aarch64-linux-android"]

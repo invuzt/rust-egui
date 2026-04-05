@@ -7,9 +7,9 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-# Kita gunakan winit dan android-activity versi 0.5 secara eksplisit
-android-activity = { version = "0.5", features = ["game-activity"] }
-eframe = { version = "0.27", default-features = false, features = ["glow", "android-game-activity"] }
+# eframe butuh fitur 'android-native-activity' atau 'android-game-activity'
+# Kita gunakan native-activity karena lebih sederhana untuk boilerplate awal
+eframe = { version = "0.27", default-features = false, features = ["glow", "android-native-activity"] }
 
 [package.metadata.android]
 build_targets = ["aarch64-linux-android"]

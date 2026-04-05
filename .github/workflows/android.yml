@@ -19,6 +19,7 @@ jobs:
         uses: android-actions/setup-android@v3
         with:
           api-level: 33
+          additional-components: platforms;android-30
           build-tools: 33.0.2
           ndk-version: 25.2.9519653
 
@@ -29,6 +30,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: rust-egui-apk
-          # Diubah ke 'release' agar sesuai dengan command build di atas
           path: target/release/apk/*.apk
-

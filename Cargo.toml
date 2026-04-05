@@ -1,0 +1,42 @@
+[package]
+name = "na-egui"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+[dependencies]
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = [
+    "fmt",
+    "env-filter",
+    "tracing-log",
+] }
+pollster = "0.2"
+
+# For some reason logging within the egui crate isn't working, even with
+# the log feature. Maybe the android_logger crate is broken?
+egui = { version = "0.33" }
+egui-wgpu = { version = "0.33", features = ["winit"] }
+egui-winit = { version = "0.33", default-features = false, features = [
+    "wayland",
+    "android-native-activity",
+    "links",
+] }
+egui_demo_lib = "0.33"
+
+[target.'cfg(target_os = "android")'.dependencies]
+paranoid-android = "0.2"
+tracing-log = "0.2"
+
+[features]
+default = []
+desktop = []
+
+[lib]
+name = "na_egui"
+crate-type = ["cdylib"]
+
+[[bin]]
+path = "src/lib.rs"
+name = "egui-test"
+required-features = ["desktop"]

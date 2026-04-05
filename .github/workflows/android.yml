@@ -1,0 +1,35 @@
+name: Build Android APK
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+
+      - name: Install cargo-apk
+        run: cargo install cargo-apk
+
+      - name: Setup Android NDK
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 33
+          build-tools: 33.0.2
+          ndk-version: 25.2.9519653 # Sesuaikan dengan kebutuhan project
+
+      - name: Build APK
+        run: |
+          cd na-egui
+          cargo apk build --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: rust-egui-apk
+          path: target/debug/apk/*.apk
+

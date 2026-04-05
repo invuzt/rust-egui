@@ -7,7 +7,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-# Kita panggil langsung android-activity agar tidak bingung mencari di dalam eframe
+# Kita gunakan winit dan android-activity versi 0.5 secara eksplisit
 android-activity = { version = "0.5", features = ["game-activity"] }
 eframe = { version = "0.27", default-features = false, features = ["glow", "android-game-activity"] }
 

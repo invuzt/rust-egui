@@ -7,7 +7,8 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-# Kita aktifkan fitur android-game-activity agar modulnya muncul
+# Kita panggil langsung android-activity agar tidak bingung mencari di dalam eframe
+android-activity = { version = "0.5", features = ["game-activity"] }
 eframe = { version = "0.27", default-features = false, features = ["glow", "android-game-activity"] }
 
 [package.metadata.android]

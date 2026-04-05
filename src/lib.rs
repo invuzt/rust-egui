@@ -1,7 +1,8 @@
 use eframe::egui;
+use android_activity::AndroidApp;
 
 #[no_mangle]
-fn android_main(app: eframe::android_activity::AndroidApp) {
+fn android_main(app: AndroidApp) {
     let options = eframe::NativeOptions {
         ..Default::default()
     };

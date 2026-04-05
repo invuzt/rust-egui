@@ -7,20 +7,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-# Menggunakan versi 0.6 untuk sinkronisasi dengan Winit terbaru
-android-activity = { version = "0.6", features = ["native-activity"] }
-egui = "0.27"
 eframe = { version = "0.27", default-features = false, features = ["glow", "android-native-activity"] }
-# Mengaktifkan fitur winit eksplisit agar Painter tersedia
-egui-wgpu = { version = "0.27", features = ["winit"] }
-egui-winit = { version = "0.27", default-features = false, features = ["android-native-activity"] }
-# Winit 0.30 memperkenalkan ActiveEventLoop dan WindowAttributes
-winit = { version = "0.30", features = ["android-native-activity"] }
-pollster = "0.3"
-tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-paranoid-android = "0.2"
-egui_demo_lib = "0.27"
 
 [package.metadata.android]
 build_targets = ["aarch64-linux-android"]

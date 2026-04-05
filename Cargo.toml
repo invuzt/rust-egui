@@ -1,4 +1,7 @@
 [package]
+
+[lib]
+crate-type = ["cdylib"]
 name = "rust-egui"
 version = "0.1.0"
 edition = "2021"

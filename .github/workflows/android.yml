@@ -28,7 +28,7 @@ jobs:
       - name: Install Specific Android Platform 30
         run: sdkmanager "platforms;android-30"
 
-      - name: Build APK (Debug Profile with Release Optimizations)
+      - name: Build APK
         run: cargo apk build
 
       - name: Upload APK

@@ -25,7 +25,8 @@ impl Default for MyApp {
 impl eframe::App for MyApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("Egui Android Demo");
+            ui.heading("Egui Android Berhasil!");
+            ui.separator();
             ui.horizontal(|ui| {
                 ui.label("Nama: ");
                 ui.text_edit_singleline(&mut self.name);

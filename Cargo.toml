@@ -7,9 +7,10 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-eframe = { version = "0.27", default-features = false, features = ["glow", "android-native-activity"] }
+# Kita aktifkan fitur android-game-activity agar modulnya muncul
+eframe = { version = "0.27", default-features = false, features = ["glow", "android-game-activity"] }
 
 [package.metadata.android]
 build_targets = ["aarch64-linux-android"]
 min_sdk_version = 21
-target_sdk_version = 30
+target_sdk_version = 34

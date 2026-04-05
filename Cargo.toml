@@ -10,8 +10,8 @@ crate-type = ["cdylib"]
 android-activity = { version = "0.4", features = ["native-activity"] }
 egui = "0.27"
 eframe = { version = "0.27", default-features = false, features = ["glow", "android-native-activity"] }
-egui_wgpu = "0.27"
-egui_winit = { version = "0.27", default-features = false, features = ["android-native-activity"] }
+egui-wgpu = "0.27"
+egui-winit = { version = "0.27", default-features = false, features = ["android-native-activity"] }
 winit = { version = "0.29", features = ["android-native-activity"] }
 pollster = "0.3"
 tracing = "0.1"

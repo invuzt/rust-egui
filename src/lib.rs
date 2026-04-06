@@ -4,19 +4,19 @@ use eframe::egui;
 fn android_main(app: android_activity::AndroidApp) {
     let options = eframe::NativeOptions::default();
     
-    // Memanggil langsung dari root eframe
+    // Fungsi ini muncul hanya jika fitur android-native-activity di Cargo.toml aktif
     eframe::run_android_app(app, options, Box::new(|_cc| Box::new(MyApp::default())))
         .expect("Gagal menjalankan eframe");
 }
 
 struct MyApp {
-    nama: String,
+    teks: String,
 }
 
 impl Default for MyApp {
     fn default() -> Self {
         Self {
-            nama: "Guru Ponorogo".to_owned(),
+            teks: "Halo Ponorogo!".to_owned(),
         }
     }
 }
@@ -26,11 +26,11 @@ impl eframe::App for MyApp {
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.heading("Egui x Odfiz Berhasil!");
             ui.separator();
-            ui.label(format!("Halo, {}!", self.nama));
-            ui.text_edit_singleline(&mut self.nama);
+            ui.label(format!("Isi teks: {}", self.teks));
+            ui.text_edit_singleline(&mut self.teks);
             
             if ui.button("Klik Saya").clicked() {
-                self.nama = "Rust itu Keren!".to_owned();
+                self.teks = "Rust itu Powerfull!".to_owned();
             }
         });
     }

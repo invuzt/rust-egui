@@ -7,7 +7,6 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-# Kita panggil langsung android-activity versi 0.5 (paling stabil untuk eframe 0.27)
 android-activity = { version = "0.5", features = ["native-activity"] }
 eframe = { version = "0.27", default-features = false, features = ["glow", "android-native-activity"] }
 

@@ -4,19 +4,19 @@ use eframe::egui;
 fn android_main(app: android_activity::AndroidApp) {
     let options = eframe::NativeOptions::default();
     
-    // Langsung panggil dari root eframe, ini adalah standar API untuk mobile
+    // Memanggil langsung dari root eframe
     eframe::run_android_app(app, options, Box::new(|_cc| Box::new(MyApp::default())))
-        .expect("Failed to run eframe");
+        .expect("Gagal menjalankan eframe");
 }
 
 struct MyApp {
-    name: String,
+    nama: String,
 }
 
 impl Default for MyApp {
     fn default() -> Self {
         Self {
-            name: "Odfiz User".to_owned(),
+            nama: "Guru Ponorogo".to_owned(),
         }
     }
 }
@@ -24,10 +24,14 @@ impl Default for MyApp {
 impl eframe::App for MyApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("Egui Android Berhasil!");
+            ui.heading("Egui x Odfiz Berhasil!");
             ui.separator();
-            ui.label(format!("Halo, {}!", self.name));
-            ui.text_edit_singleline(&mut self.name);
+            ui.label(format!("Halo, {}!", self.nama));
+            ui.text_edit_singleline(&mut self.nama);
+            
+            if ui.button("Klik Saya").clicked() {
+                self.nama = "Rust itu Keren!".to_owned();
+            }
         });
     }
 }

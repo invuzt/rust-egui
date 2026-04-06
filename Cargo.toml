@@ -7,8 +7,8 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-# eframe butuh fitur 'android-native-activity' atau 'android-game-activity'
-# Kita gunakan native-activity karena lebih sederhana untuk boilerplate awal
+# Kita panggil langsung android-activity versi 0.5 (paling stabil untuk eframe 0.27)
+android-activity = { version = "0.5", features = ["native-activity"] }
 eframe = { version = "0.27", default-features = false, features = ["glow", "android-native-activity"] }
 
 [package.metadata.android]

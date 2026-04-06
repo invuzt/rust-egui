@@ -4,7 +4,7 @@ use eframe::egui;
 fn android_main(app: android_activity::AndroidApp) {
     let options = eframe::NativeOptions::default();
     
-    // Fungsi ini muncul hanya jika fitur android-native-activity di Cargo.toml aktif
+    // Jika masih error di sini, berarti kita harus memanggilnya lewat eframe::run_android_app
     eframe::run_android_app(app, options, Box::new(|_cc| Box::new(MyApp::default())))
         .expect("Gagal menjalankan eframe");
 }
@@ -24,14 +24,10 @@ impl Default for MyApp {
 impl eframe::App for MyApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("Egui x Odfiz Berhasil!");
+            ui.heading("Egui x Odfiz");
             ui.separator();
-            ui.label(format!("Isi teks: {}", self.teks));
+            ui.label(format!("Teks: {}", self.teks));
             ui.text_edit_singleline(&mut self.teks);
-            
-            if ui.button("Klik Saya").clicked() {
-                self.teks = "Rust itu Powerfull!".to_owned();
-            }
         });
     }
 }
